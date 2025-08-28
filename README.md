@@ -1,18 +1,23 @@
-.
 
 # 📝 Test Portal  
 
-A **web-based Test Management System** where students can attempt quizzes and view results, while admins manage questions and performance reports.  
+A simple, secure, and student-friendly **quiz & test management platform**. Students can register, attempt MCQ-based tests, check results instantly, and admins can manage questions, courses, and student records.  
 
 ---
 
-## 📌 Table of Contents  
-- [Features](#-features)  
-- [Tech Stack](#-tech-stack)  
-- [Project Structure](#-project-structure)  
-- [Setup Instructions](#-setup-instructions)  
-- [Future Enhancements](#-future-enhancements)  
-- [Screenshots](#-screenshots)  
+## ✨ Features  
+
+* 👤 **Auth**: Student/Teacher registration & login (role-based access)  
+* 📝 **Quizzes/Tests**: MCQ-based test system with instant scoring  
+* 🗂️ **Organized Questions**: Course → Branch → Year → Subject categories  
+* 🔎 **Search & Filters**: Filter tests by course/subject/date  
+* 📊 **Results & Ranking**: Students can view score & rank  
+* 🛡️ **Admin Panel**: Manage questions, view results, manage students  
+
+---
+
+## 🧱 Architecture (High-Level)  
+
 
 ---
 
@@ -39,85 +44,18 @@ A **web-based Test Management System** where students can attempt quizzes and vi
 - **Security:** Spring Security (for admin authentication)  
 
 ---
-🎯 Future Enhancements
+## Application properties
+# Server
+server.port=8080
 
-Quiz timer with auto-submit ⏳
-
-Export results in PDF/Excel 📑
-
-Bulk question upload via CSV/Excel 📂
-
-Leaderboard with analytics 📊
-
-## 📂 Project Structure  
-
-
-👨‍💻 Admin Module
-
-Admin authentication (Spring Security)
-
-Add / Edit / Delete questions
-
-Organize questions by Course, Branch, Year, Subject
-
-View and manage student results
-
-🛠️ Tech Stack
-
-Frontend: HTML, CSS, JavaScript, Bootstrap
-
-Backend: Java Spring Boot (REST APIs + MVC)
-
-Database: MySQL
-
-
-⚙️ Installation & Setup
-1️⃣ Clone Repository
-git clone https://github.com/yourusername/TestPortal.git
-cd TestPortal
-
-2️⃣ Setup Database (MySQL)
-
-Create a database named test_portal
-
-Import the schema file
-
-CREATE DATABASE test_portal;
-USE test_portal;
-SOURCE database/schema.sql;
-
-
-Configure database in application.properties (Spring Boot backend):
-
-spring.datasource.url=jdbc:mysql://localhost:3306/test_portal
-spring.datasource.username=root
-spring.datasource.password=yourpassword
+# DB
+spring.datasource.url=jdbc:mysql://localhost:3306/test_portal?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=YOUR_DB_USER
+spring.datasource.password=YOUR_DB_PASS
 spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
 
-3️⃣ Run Backend (Spring Boot)
-cd backend
-./mvnw spring-boot:run
-
-4️⃣ Run Frontend (Bootstrap UI)
-
-Open frontend/index.html in your browser
-
-Or serve via Apache/Tomcat/Nginx
-
-🎯 Future Enhancements
-
-Timer-based quizzes ⏳
-
-Export results in PDF/Excel 📊
-
-Bulk upload of questions via Excel/CSV 📂
-
-Leaderboard & analytics 📈
-
-📸 Screenshots
-
-(Add images later, example 👇)
-
-![Login Page](screenshots/login.png)  
-![Dashboard](screenshots/dashboard.png)  
-![Test Page](screenshots/test.png)  
+# Security
+spring.security.user.name=admin
+spring.security.user.password=admin123
