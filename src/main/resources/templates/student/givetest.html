@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{student/studentbase::layout(~{::section})}">
+<head>
+	<title>Give Test</title>
+</head>
+<body>
+<section>
+
+	<!-- Page-header start -->
+	<div class="page-header">
+		<div class="page-block">
+			<div class="row align-items-center">
+				<div class="col-md-8">
+					<div class="page-header-title">
+						<h5 class="m-b-10">Give Test</h5>
+						<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology, Lucknow</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<ul class="breadcrumb-title">
+						<li class="breadcrumb-item"><a href="stdhome"><i class="fa fa-home"></i></a></li>
+						<li class="breadcrumb-item"><a href="givetest">Give Test</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page-header end -->
+
+	<!-- Main Section -->
+	<div class="pcoded-inner-content">
+		<div class="row m-2 card shadow" style="border-radius: 10px; padding: 20px; background-color: white;">
+			<div class="col-sm-12">
+
+				<!-- Instructions -->
+				<div class="row mt-2 mb-2">
+					<h3 style="color: #ef662f; font-weight: bold; margin: 4px;">Important Instructions</h3>
+				</div>
+				<hr>
+				<div class="row mt-2 mb-3 mx-1">
+					<h6>Kindly go through the below mentioned set of instructions before giving the online test</h6>
+					<ul style="margin-left: 20px; list-style-type: disc;">
+						<li>All questions are compulsory.</li>
+						<li>This test is timer-based, so manage your time efficiently and answer questions quickly.</li>
+						<li>There is no negative marking, but avoid random guessing.</li>
+						<li>Do not open other tabs or windows — your test will auto-submit.</li>
+						<li>Read each question carefully before answering.</li>
+						<li>The questions are based on your syllabus.</li>
+						<li>Ensure a stable internet connection and backup power.</li>
+						<li>Keep your student ID and login credentials ready before the test begins.</li>
+						<li>Have a pen and paper ready for rough work if needed.</li>
+						<li>Log in at least 10 minutes before the test start time.</li>
+						<li>Familiarize yourself with the test interface.</li>
+						<li>If you encounter issues, contact the test proctor or support team.</li>
+						<li>Avoid distractions and ensure a quiet environment.</li>
+					</ul>
+				</div>
+
+				<!-- Declaration -->
+				<div style="display: flex; align-items: flex-start;">
+					<input type="checkbox" id="declare" style="margin-right: 10px; margin-top: 3px;">
+					<label for="declare" style="font-style: italic;">
+						I hereby declare that I have read all the important instructions before giving the Test.
+					</label>
+				</div>
+
+				<!-- Start Test Button -->
+				<div class="row m-3 text-center">
+					<input type="hidden" id="questionfound" th:value="${message ?: 'false'}">
+					<button type="button" id="starttestbtn" class="px-4 py-2 mx-auto">Start Test
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Styles -->
+	<style>
+		#starttestbtn {
+			color: white;
+			border: none;
+			border-radius: 20px;
+			font-size: 1rem;
+			background-color: rgba(239, 102, 47, 0.5);
+			cursor: not-allowed;
+		}
+	</style>
+
+	<!-- SweetAlert + JS Logic -->
+	
+
+</section>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://lms.polyprep.co.in/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Welcome to AIMT Online Test Portal</title>
+
+	<link href="https://lms.polyprep.co.in/assets/common/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+
+	<link href="media/logo.png" rel="image icon">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://fonts.cdnfonts.com/css/revue-bt" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="css/stylecss.css" rel="stylesheet">
+</head>
+
+<body onclick="fscreen();" onscroll="fscreen();" data-new-gr-c-s-check-loaded="14.1215.0" data-gr-ext-installed="">
+
+	<div class="container-fluid headline">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center text-sm-start">
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid outer" id="out">
+
+		<div class="row">
+			<div class="col-sm-10 mx-auto px-5 px-sm-0 px-lg-0">
+				<!-- <div class="container"> -->
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo-outer" style="height: 100px;width: 100px;">
+							<img src="media/logo.png" class="img-fluid logo">
+						</div>
+					</div>
+					<div class="col-sm-8 mt-3 text-center text-sm-end" style="color: white; font-weight: 900;">
+						<h2 class="clghead" style="text-transform: uppercase; font-family: 'Revue BT', sans-serif;">
+							AIMT
+							Online Test Portal</h2>
+						<h5 class="clghead"> Online Test Portal</h5>
+					</div>
+				</div>
+
+				<div class="main-container" th:replace="${content}">
+
+				</div>
+				<!-- </div> -->
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-12 footer text-center">
+				Copyright © 2025 | Designed  Developed By Rajkumar Gupta
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+	<script src="./__ Welcome to Polyprep ___files/bootstrap.bundle.min.js.download"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+	<script>
+		const msg = document.getElementById("msg");
+		if(msg.value!=null)
+		{
+			alert(msg.value);
+		}
+	</script>
+
+	<script>
+		const togglePassword = document.getElementById('togglePassword');
+		const passwordField = document.getElementById('password');
+
+		togglePassword.addEventListener('click', function () {
+			// Toggle the type attribute
+			const type = passwordField.type === 'password' ? 'text' : 'password';
+			passwordField.type = type;
+
+			// Toggle the button text or icon
+			this.innerHTML = type === 'password' ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>'; // Change icon if desired
+		});
+	</script>
+
+	<script>
+		document.getElementById('loginForm').addEventListener('submit', function (event) {
+			event.preventDefault(); // Prevent the default form submission
+
+			// Get form values
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
+
+			// Determine the API URL based on the environment
+			let apiUrl = '';
+
+			 if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+			 	// Development environment
+			 	apiUrl = 'https://sitp-production.up.railway.app/studentlogin';
+			 } else {
+			 	// Production environment
+			 	apiUrl = 'https://sitp-production.up.railway.app/studentlogin';
+			 }
+
+			// Send data to the Spring Boot API using fetch
+			fetch(apiUrl, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ email, password })
+			})
+
+				.then(response => {
+					if (response.ok) {
+						return response.text(); // Read response as plain text
+					} else {
+						return response.text().then(err => { throw new Error(err); });
+					}
+				})
+				.then(message => {
+					// Display the response message inside the modal
+					const responseMessageElement = document.getElementById('responseMessage');
+					responseMessageElement.textContent = message;
+					responseMessageElement.style.color = 'green'; // Success message in green
+					window.location.href = '/student/stdhome'; // Redirect to student home page
+				})
+				.catch(error => {
+					// Handle errors (e.g., 401 or 404)
+					const responseMessageElement = document.getElementById('responseMessage');
+					responseMessageElement.textContent = error.message;
+					responseMessageElement.style.color = 'red'; // Error message in red
+				});
+		});
+
+	</script>
+
+
+</body>
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true">
+	<template shadowrootmode="open">
+		<style>
+			div.grammarly-desktop-integration {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap;
+				border: 0;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			div.grammarly-desktop-integration:before {
+				content: attr(data-content);
+			}
+		</style>
+		<div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration"
+			data-content="{&quot;mode&quot;:&quot;limited&quot;,&quot;isActive&quot;:false,&quot;isUserDisabled&quot;:false}">
+		</div>
+	</template>
+</grammarly-desktop-integration>
+
+</html>

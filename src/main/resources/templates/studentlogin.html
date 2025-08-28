@@ -1,0 +1,57 @@
+<html th:replace="~{base::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<div class="row">
+			<div class="col-sm-12 p-0">
+				<div class="container">
+
+					<div class="row main mb-5">
+						<div th:if="${msg}">
+							<input type="hidden" id="msg" th:value="${msg}">
+						</div>
+
+						<div class="col-sm-3"></div>
+						<div class="col-sm-6 px-5 login-outer">
+							<h4 class="text-center"
+								style="font-family: 'Revue BT', sans-serif;">student
+								Login</h4>
+								<form method="post" th:object="${dto}">
+								    <!-- CSRF Token (Only needed if using Spring Security) -->
+								     
+
+								    <!-- Email Input -->
+								    <input type="text" th:field="*{email}" placeholder="Enter User ID" class="form-control" required> 
+								    <br>
+
+								    <!-- Password Input with Toggle Visibility -->
+								    <div style="position: relative;">
+								        <input type="password" id="password" th:field="*{password}" required placeholder="Enter Password" class="form-control">
+								        <button type="button" id="togglePassword"
+								            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 20px;">
+								            <i class="fa-solid fa-eye"></i>
+								        </button>
+								    </div>
+
+								    <br>
+								    <input type="submit" class="form-control btn btn-primary" value="Login">
+								    <br>
+								</form>
+								<p>
+							       <!-- <a href="#">Forgot Password?</a><br> -->
+									<a href="/" style="font-size: 14px; font-weight: 200 !important; color: #333;">
+									Back To Home Page
+								</a>
+							</p>
+						<div class="col-sm-3"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

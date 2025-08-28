@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+	th:replace="~{student/studentbase::layout(~{::section})}">
+<head>
+</head>
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Dashboard</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="stdhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="givetest">Give Test</a></li>
+							<li class="breadcrumb-item"><a href="#">Test Over</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<!-- Main Section Started -->
+		<div class="pcoded-inner-content">
+			<div class="card shadow mx-auto w-75 px-5 pt-4 mt-4 pb-3">
+				<div class="row pb-2">
+					<div class="col-sm-4 p-0">
+						<img alt="image not found" style="height: 100%; width: 100%;"
+							src="../images/laptop-user.jpg">
+					</div>
+
+					<div class="col-sm-8"
+						style="display: flex; align-items: center; justify-content: center;">
+						<div>
+							<h3>
+								Congratulations <span class="text-orange"
+									th:text="${stdinfo.name}"></span> ✨🎉
+							</h3>
+							<p style="font-size: 16px;">
+								Your Test has been submitted Successfully.<br>
+							<div>
+
+								<p style="font-size: 14px;">
+									You have participated in 
+									<span class="text-orange" th:text="${stdinfo.testname}">Online Test</span> 
+									<br> 
+									We appreciate your effort and time. We will review and evaluate your performance and the results will be communicated to you soon.
+								</p>
+							</div>
+							</p>
+						</div>
+					</div>
+
+
+					<div class="col-sm-12 pt-4 text-center">
+						<a class="btn btn-primary" href="stdhome">Go To Dashboard</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

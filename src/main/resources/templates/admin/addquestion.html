@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" th:replace="~{admin/adminbase::layout(~{::section})}">
+
+<head></head>
+
+<body>
+<section>
+
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Add Question</h5>
+                        <p class="m-b-0">Welcome to Ambalika Institute of Management and Technology, Lucknow</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="adhome"><i class="fa fa-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Add New Questions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+
+    <div class="pcoded-inner-content">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add Question</h5>
+                    </div>
+                    <div class="card-block">
+                        <form class="form-material" th:object="${qbdto}" method="post">
+                            <div class="row">
+
+                                <!-- Test Name -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <select class="form-control" id="testname" th:field="${qbdto.testname}">
+                                            <option value="">--Select Test Name--</option>
+                                            <th:block th:each="test : ${testList}">
+                                                <option th:value="${test.testname}" th:text="${test.testname}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Question -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <textarea class="form-control" id="question" th:field="${qbdto.question}" rows="2" required></textarea>
+                                        <span class="form-bar"></span>
+                                        <label class="float-label">Enter Question</label>
+                                    </div>
+                                </div>
+
+                                <!-- Options A to D -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <textarea class="form-control" id="a" th:field="${qbdto.a}" required></textarea>
+                                        <span class="form-bar"></span>
+                                        <label class="float-label">Enter Option A</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <textarea class="form-control" id="b" th:field="${qbdto.b}" rows="1" required></textarea>
+                                        <span class="form-bar"></span>
+                                        <label class="float-label">Enter Option B</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <textarea class="form-control" id="c" th:field="${qbdto.c}" rows="1" required></textarea>
+                                        <span class="form-bar"></span>
+                                        <label class="float-label">Enter Option C</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <textarea class="form-control" id="d" th:field="${qbdto.d}" rows="1" required></textarea>
+                                        <span class="form-bar"></span>
+                                        <label class="float-label">Enter Option D</label>
+                                    </div>
+                                </div>
+
+                                <!-- Correct Answer -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <select class="form-control" id="correct" th:field="${qbdto.correct}" required>
+                                            <option value="">Select Correct Option</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Course -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <select class="form-control" id="course" th:field="${qbdto.course}" required>
+                                            <option value="">--Select Course--</option>
+                                            <option value="B.Tech">B.Tech</option>
+                                            <option value="M.Tech">M.Tech</option>
+                                            <th:block th:each="course : ${courseList}">
+                                                <option th:value="${course.name}" th:text="${course.name}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Branch (with fix) -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <select class="form-control" id="branch"
+                                                th:field="${qbdto.branch}"
+                                                th:attr="data-current=${qbdto.branch}" required>
+                                            <option value="">--Select Branch--</option>
+                                            <th:block th:each="b : ${branchList}">
+                                                <option th:value="${b.branchname}" th:text="${b.branchname}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Year -->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-default">
+                                        <select class="form-control" id="year" th:field="${qbdto.year}" required>
+                                            <option value="">--Select Year--</option>
+                                            <option value="First Year">1<sup>st</sup> Year</option>
+                                            <option value="Second Year">2<sup>nd</sup> Year</option>
+                                            <option value="Third Year">3<sup>rd</sup> Year</option>
+                                            <option value="Fourth Year">4<sup>th</sup> Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="col-sm-12 pb-0">
+                                    <div class="form-group form-default text-center pt-3">
+                                        <button class="btn btn-inverse mx-auto" type="submit">Add Question</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional Styling -->
+    <style>
+        .form-material textarea {
+            height: 40px !important;
+        }
+    </style>
+
+    <!-- JavaScript for Dynamic Dropdowns -->
+    <script>
+        const courseSelect = document.getElementById('course');
+        const yearSelect = document.getElementById('year');
+        const branchSelect = document.getElementById('branch');
+        const testSelect = document.getElementById('testname');
+
+        const courseYearMap = {
+            "B.Tech": ["First Year", "Second Year", "Third Year", "Fourth Year"],
+            "M.Tech": ["First Year", "Second Year"],
+            "BCA": ["First Year", "Second Year", "Third Year"]
+        };
+
+        const courseBranchMap = {
+            "B.Tech": ["Computer Science", "Electronics", "Mechanical", "Civil"],
+            "M.Tech": ["Computer Science", "VLSI", "Power Systems"],
+            "BCA": ["IT", "Software Development"]
+        };
+
+        const extraTests = ["C Programming", "Machine Learning", "C++", "Aptitude"];
+
+        // Update year & branch based on course
+        courseSelect.addEventListener('change', () => {
+            const selectedCourse = courseSelect.value;
+            const currentBranch = branchSelect.getAttribute('data-current');
+
+            // Update Year options
+            yearSelect.innerHTML = '<option value="">--Select Year--</option>';
+            if (courseYearMap[selectedCourse]) {
+                courseYearMap[selectedCourse].forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearSelect.appendChild(option);
+                });
+            }
+
+            // Update Branch options
+            branchSelect.innerHTML = '<option value="">--Select Branch--</option>';
+            if (courseBranchMap[selectedCourse]) {
+                courseBranchMap[selectedCourse].forEach(branch => {
+                    const option = document.createElement('option');
+                    option.value = branch;
+                    option.textContent = branch;
+                    if (branch === currentBranch) {
+                        option.selected = true;
+                    }
+                    branchSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Inject extra tests into Test Name dropdown
+        window.addEventListener('DOMContentLoaded', () => {
+            const existingOptions = new Set([...testSelect.options].map(opt => opt.value.trim()));
+            extraTests.forEach(test => {
+                if (!existingOptions.has(test)) {
+                    const option = document.createElement('option');
+                    option.value = test;
+                    option.textContent = test;
+                    testSelect.appendChild(option);
+                }
+            });
+
+            // Trigger course change to refresh branch/year
+            if (courseSelect.value) {
+                const event = new Event('change');
+                courseSelect.dispatchEvent(event);
+            }
+        });
+    </script>
+
+</section>
+</body>
+</html>

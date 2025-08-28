@@ -1,0 +1,73 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Update Test Duration</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Update Test Duration</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-7 mx-auto">
+						<div class="card">
+							<div class="card-header">
+								<h5>Update Test Duration</h5>
+								<!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+							</div>
+							<div class="card-block">
+								<form class="form-material" action="/admin/updatetime"
+									method="post">
+									<div class="row">
+										<div class="col-sm-8">
+											<div class="form-group form-default">
+												<input type="text" name="timeduration" class="form-control"
+													required=""> <span class="form-bar"></span> <label
+													class="float-label">Enter Duration in Hours</label>
+												<input type="hidden" th:value="${test.id}" name="testid">
+											</div>
+										</div>
+
+										<div class="col-sm-4 pb-0">
+											<div class="form-group form-default text-center pt-3">
+												<button class="btn btn-inverse mx-auto" type="submit">Update Duration</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<style>
+	.table td
+	{
+		padding: 5px 10px !important;
+	    vertical-align: middle;
+	}
+</style>
+	</section>
+</body>
+</html>

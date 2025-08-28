@@ -1,0 +1,184 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Dashboard</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<!-- Page-body start -->
+			<div class="page-body">
+				<div class="row">
+					<div class="col-sm-11 mx-auto">
+						<div class="row p-4">
+							<!-- task, page, download counter  start -->
+							<div class="col-xl-4 col-md-6">
+								<div class="card">
+									<div class="card-block">
+										<div class="row align-items-center">
+											<div class="col-8">
+												<h4 class="text-c-blue" th:text="${ascount}">200+</h4>
+												<h6 class="text-muted m-b-0">Students</h6>
+											</div>
+											<div class="col-4 text-right">
+												<i class="fa fa-bar-chart f-28"></i>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-inverse bg-dark">
+										<div class="row align-items-center">
+											<div class="col-10">
+												<p class="text-white m-b-0">Total
+													Students</p>
+											</div>
+											<div class="col-2 text-right">
+												<i class="fa fa-line-chart text-white f-16"></i>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-4 col-md-6">
+								<div class="card">
+									<div class="card-block">
+										<div class="row align-items-center">
+											<div class="col-8">
+												<h4 class="text-c-blue" th:text="${qcount}">145+</h4>
+												<h6 class="text-muted m-b-0">Question Bank</h6>
+											</div>
+											<div class="col-4 text-right">
+												<i class="fa fa-calendar-check-o f-28"></i>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-inverse">
+										<div class="row align-items-center">
+											<div class="col-9">
+												<p class="text-white m-b-0">Total Uploaded Questions</p>
+											</div>
+											<div class="col-3 text-right">
+												<i class="fa fa-line-chart text-white f-16"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-4 col-md-6">
+								<div class="card">
+									<div class="card-block">
+										<div class="row align-items-center">
+											<div class="col-8">
+												<h4 class="text-c-inverse" th:text="${tstcount}">50+</h4>
+												<h6 class="text-muted m-b-0">Tests</h6>
+											</div>
+											<div class="col-4 text-right">
+												<i class="ti-agenda f-28"></i>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-c-blue">
+										<div class="row align-items-center">
+											<div class="col-9">
+												<p class="text-white m-b-0">Total No. of Test Scheduled</p>
+											</div>
+											<div class="col-3 text-right">
+												<i class="fa fa-line-chart text-white f-16"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xl-4 col-md-6">
+								<div class="card">
+									<div class="card-block">
+										<div class="row align-items-center">
+											<div class="col-8">
+												<h4 class="text-c-blue" th:text="${rescount}">230+</h4>
+												<h6 class="text-muted m-b-0">Results</h6>
+											</div>
+											<div class="col-4 text-right">
+												<i class="ti-dropbox-alt f-28"></i>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-inverse">
+										<div class="row align-items-center">
+											<div class="col-9">
+												<p class="text-white m-b-0">No. of Results Declared</p>
+											</div>
+											<div class="col-3 text-right">
+												<i class="fa fa-line-chart text-white f-16"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+
+							<!-- <div class="col-xl-4 col-md-6">
+								<div class="card">
+									<div class="card-block">
+										<div class="row align-items-center">
+											<div class="col-8">
+												<h4 class="text-c-inverse" th:text="${eqcount}">200+</h4>
+												<h6 class="text-muted m-b-0">Enquiry</h6>
+											</div>
+											<div class="col-4 text-right">
+												<i class="ti-themify-favicon f-28"></i>
+											</div>
+										</div>
+									</div>
+									<div class="card-footer bg-c-blue">
+										<div class="row align-items-center">
+											<div class="col-9">
+												<p class="text-white m-b-0">Total Enquiries</p>
+											</div>
+											<div class="col-3 text-right">
+												<i class="fa fa-line-chart text-white f-16"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- task, page, download counter  end -->
+
+<style>
+.card:hover {
+	box-shadow: 0px 5px 8px gray;
+	transform:translateY(-5px) scale(1.02);
+	
+}
+</style>
+	</section>
+</body>
+</html>

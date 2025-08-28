@@ -1,0 +1,208 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Dashboard</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<!-- Page-body Start -->
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-8 mx-auto">
+						<div class="card">
+							<div class="card-header">
+								<h5>Edit Student Details</h5>
+								<!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+							</div>
+							<div class="card-block">
+								<form th:action="@{/admin/updatestudent}" class="form-material"
+									method="post" th:object="${stdinfo}">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" th:field="*{enrollmentno}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label">Student
+													Enrollment Number</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select id="test" required th:field="*{testname}" class="form-control">
+													<option th:value="${stdinfo.testname}">-Select Test Name-</option>
+													<th:block th:each="tests : ${testList}">
+														<option th:value="${tests.testname}"
+															th:text="${tests.testname}"></option>
+													</th:block>
+												</select>
+											</div>
+										</div>
+
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" th:field="*{name}" class="form-control"
+													required=""> <span class="form-bar"></span> <label
+													class="float-label">Student Name</label>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="email" readonly th:field="*{email}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label"
+													style="top: -12; font-size: 11px;">Student Email
+													Address</label>
+											</div>
+										</div>
+
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="number" th:field="*{contactno}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label">Student
+													Contact No.</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="number" th:field="*{whatsappno}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label">Student
+													Whatsapp No.</label>
+											</div>
+										</div>
+
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select th:field="*{collegename}" class="form-control">
+													<option value="">--Update College Name--</option>
+													<th:block th:each="college : ${collegeList}">
+														<option th:value="${college.collegename}"
+															th:text="${college.collegename}"></option>
+													</th:block>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select th:field="*{course}" class="form-control">
+													<option value="">--Update Course--</option>
+													<th:block th:each="course : ${courseList}">
+														<option th:value="${course.coursename}"
+															th:text="${course.coursename}"></option>
+													</th:block>
+												</select>
+											</div>
+										</div>
+
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select th:field="*{branch}" class="form-control">
+													<option value="">--Update Branch--</option>
+													<th:block th:each="branch : ${branchList}">
+														<option th:value="${branch.branchname}"
+															th:text="${branch.branchname}"></option>
+													</th:block>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select th:field="*{year}" class="form-control">
+													<option value="">--Update Year--</option>
+													<option value="First Year">1<sup>st</sup> Year
+													</option>
+													<option value="Second Year">2<sup>nd</sup> Year
+													</option>
+													<option value="Third Year">3<sup>rd</sup> Year
+													</option>
+													<option value="Fourth Year">4<sup>th</sup> Year
+													</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" th:field="*{highschoolp}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label">High
+													Marks Percentage</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" th:field="*{intermediatep}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label">Intermediate
+													Marks Percentage</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" th:field="*{aggregatemarks}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label">Aggregate
+													Marks</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" readonly th:field="*{regdate}"
+													class="form-control" required=""> <span
+													class="form-bar"></span> <label class="float-label"
+													style="top: -12; font-size: 11px;">Registration
+													Date</label>
+											</div>
+										</div>
+
+										<div class="col-sm-12 pb-0">
+											<div class="form-group form-default text-center pt-3">
+												<button class="btn btn-inverse mx-auto" type="submit">
+													Update</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

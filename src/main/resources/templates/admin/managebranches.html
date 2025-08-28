@@ -1,0 +1,118 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Add New Branches</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Manage Branches</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-7 mx-auto">
+						<div class="card">
+							<div class="card-header">
+								<h5>Add Branches</h5>
+								<!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+							</div>
+							<div class="card-block">
+								<form class="form-material" action="/admin/addbranches"
+									method="post">
+									<div class="row">
+										<div class="col-sm-8">
+											<div class="form-group form-default">
+												<input type="text" name="branchname" class="form-control"
+													required=""> <span class="form-bar"></span> <label
+													class="float-label">Enter Branch Name</label>
+											</div>
+										</div>
+
+										<div class="col-sm-4 pb-0">
+											<div class="form-group form-default text-center pt-3">
+												<button class="btn btn-inverse mx-auto" type="submit">Add Branch</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-11 mx-auto">
+						<!-- Hover table card start -->
+				<div class="card">
+					 <div class="card-header">
+						<h5 class="fw-bold">All Branch List</h5>
+						
+						<div class="card-header-right">
+							<ul class="list-unstyled card-option">
+								<li><i class="fa fa fa-wrench open-card-option"></i></li>
+								<li><i class="fa fa-window-maximize full-card"></i></li>
+								<li><i class="fa fa-minus minimize-card"></i></li>
+								<li><i class="fa fa-refresh reload-card"></i></li>
+								<li><i class="fa fa-trash close-card"></i></li>
+							</ul>
+						</div>
+						
+					</div>
+					<div class="card-block table-border-style">
+						<div class="table-responsive">
+							<table id="myTable" class="table table-hover">
+								<thead>
+									<tr>
+										<th class="text-center">Sr. No.</th>
+										<th>Branch Name</th>
+										<th class="text-center">Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+								<tr th:each="b, srno:${branchList}">
+										<td class="text-center" th:text="${srno.index + 1}" scope="row">1</td>
+										<td th:text="${b.branchname}"></td>
+										<td class="text-center">
+											<a th:href="@{deletebranch(branchid=${b.id})}">
+												<button onclick="return confirm('Are you sure want to delete??')" class="btn btn-danger">Delete</button>
+											</a>
+										</td>
+									</tr> 
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- Hover table card end -->
+					</div>
+				</div>
+			</div>
+		</div>
+<style>
+	.table td
+	{
+		padding: 5px 10px !important;
+	    vertical-align: middle;
+	}
+</style>
+	</section>
+</body>
+</html>

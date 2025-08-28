@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+
+<head>
+<title>Admin Zone - Online Test Portal</title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description"
+	content="Mega Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+<meta name="keywords"
+	content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+<meta name="author" content="codedthemes" />
+<!-- Favicon icon -->
+<link rel="icon" href="media/logo.png" type="image/x-icon">
+
+
+
+<!-- Google font-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+	rel="stylesheet">
+<!-- waves.css -->
+<link rel="stylesheet" href="../assets/pages/waves/css/waves.min.css"
+	type="text/css" media="all">
+<!-- Required Fremwork -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/bootstrap/css/bootstrap.min.css">
+<!-- waves.css -->
+<link rel="stylesheet" href="../assets/pages/waves/css/waves.min.css"
+	type="text/css" media="all">
+<!-- themify icon -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/icon/themify-icons/themify-icons.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/icon/font-awesome/css/font-awesome.min.css">
+<!-- scrollbar.css -->
+<link rel="stylesheet" type="text/css"
+	href="../assets/css/jquery.mCustomScrollbar.css">
+<!-- am chart export.css -->
+<link rel="stylesheet"
+	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
+	type="text/css" media="all" />
+<!----------------------------------------datatable--------------------------------->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/2.1.3/css/dataTables.bootstrap5.css" />
+
+<!-- Style.css -->
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/loader.css">
+
+
+<style type="text/css">
+.fixed-button {
+	display: none;
+}
+
+div.dt-length {
+	float: left;
+}
+
+div.dt-search {
+	float: right;
+}
+
+.dt-layout-row {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 10px;
+	margin: 0px 10px;
+}
+
+button.dt-paging-button {
+	outline: none;
+	border: 1px solid #ffff;
+	margin: 0px 1px;
+}
+
+button.dt-paging-button.current {
+	padding: 3px 7px;
+	font-weight: bold;
+	border: 1px solid #ff4500;;
+}
+
+.table-responsive::-webkit-scrollbar {
+	height: 5px;
+	border-radius: 5px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+	background: #888;
+	width: 100px;
+	border-radius: 5px;
+}
+
+.dt-input {
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+/* Default layout for larger screens */
+.nav-right-list {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	/* Each item in a single line */
+	justify-content: center; /* Center all items horizontally */
+	align-items: center; /* Center all items vertically */
+	gap: 10px; /* Add space between items */
+}
+
+/* Layout for screens smaller than 440px */
+@media screen and (max-width: 400px) {
+	.nav-right-list {
+		grid-template-columns: repeat(2, auto);
+		/* Two items in the first row */
+	}
+	.nav-right-list li:last-child {
+		grid-column: 1/-1; /* Place the last item in a new row */
+		text-align: center; /* Center align the last item */
+	}
+	.nav-right {
+		float: left !important;
+		transform: translate3d(25%, 10px, 0);
+	}
+}
+
+#student-btn {
+	display: block !important;
+}
+
+#question-btn {
+	display: block !important;
+}
+</style>
+
+</head>
+
+<body>
+	<!-- Pre-loader start -->
+	<div class="theme-loader">
+		<div class="loader-track">
+			<div class="preloader-wrapper">
+				<div class="spinner-layer spinner-blue">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div>
+					<div class="gap-patch">
+						<div class="circle"></div>
+					</div>
+					<div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+				<div class="spinner-layer spinner-red">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div>
+					<div class="gap-patch">
+						<div class="circle"></div>
+					</div>
+					<div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer spinner-yellow">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div>
+					<div class="gap-patch">
+						<div class="circle"></div>
+					</div>
+					<div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer spinner-green">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div>
+					<div class="gap-patch">
+						<div class="circle"></div>
+					</div>
+					<div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Pre-loader end -->
+
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+			<nav class="navbar header-navbar pcoded-header">
+				<div class="navbar-wrapper">
+					<div class="navbar-logo">
+						<a class="mobile-menu waves-effect waves-light"
+							id="mobile-collapse" href="#!"> <i class="ti-menu"></i>
+						</a>
+						<a href="#" class="text-center"> 
+							<b style="font-size: 18px;">AIMT LUCKNOW</b>
+						</a> 
+						<a class="mobile-options waves-effect waves-light"> <i
+							class="ti-more"></i>
+						</a>
+					</div>
+
+					<div class="navbar-container container-fluid">
+						<ul class="nav-left">
+							<li>
+								<div class="sidebar_toggle">
+									<a href="javascript:void(0)"><i class="ti-menu"></i></a>
+								</div>
+							</li>
+							 <li class="header-search">
+								<div class="main-search morphsearch-search">
+									<div class="input-group">
+										<span class="input-group-addon search-close"><i
+											class="ti-close"></i></span> <input type="text" class="form-control">
+										<span class="input-group-addon search-btn"><i
+											class="ti-search"></i></span>
+									</div>
+								</div>
+							</li>
+							  <li><a href="#!" onclick="javascript:toggleFullScreen()"
+								class="waves-effect waves-light"> <i class="ti-fullscreen"></i>
+							</a></li>
+						</ul>
+						<div class="nav-right">
+							<ul class="nav-right-list">
+								<li class="header-notification"><a
+									class="bg-dark waves-effect waves-light btn-hover "
+									th:id="${studentbtn}" href="#" data-toggle="modal"
+									data-target="#uploadStudent"
+									style="white-space: nowrap; height: 30px; line-height: 30px; font-size: 12px !important; display: none;">
+										<i class="ti-export"></i> &nbsp; Upload Student
+								</a></li>
+
+								<li class="header-notification"><a
+									class="bg-dark waves-effect waves-light btn-hover" href="#"
+									data-toggle="modal" th:id="${questionbtn}"
+									data-target="#uploadQuestion"
+									style="white-space: nowrap; height: 30px; line-height: 30px; font-size: 12px !important; display: none;">
+										<i class="ti-export"></i> &nbsp; Upload Question
+								</a></li>
+
+
+								<li class="user-profile header-notification"><a href="#!"
+									class="waves-effect waves-light"> <!-- <img src="../assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                   --> <span th:text="${adinfo.name}">ABCD</span>
+										<i class="ti-angle-down"></i>
+								</a>
+									<ul class="show-notification profile-notification">
+
+										<li class="waves-effect waves-light"><a href="profile">
+												<i class="ti-user"></i> Profile
+										</a></li>
+
+										<li class="waves-effect waves-light"><a
+											href="changepassword"> <i class="ti-lock"></i> Change
+												Password
+										</a></li>
+										<li class="waves-effect waves-light"><a href="adlogout">
+												<i class="ti-layout-sidebar-left"></i> Logout
+										</a></li>
+									</ul></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
+					<nav class="pcoded-navbar">
+						<div class="sidebar_toggle">
+							<a href="#"><i class="icon-close icons"></i></a>
+						</div>
+						<div class="pcoded-inner-navbar main-menu">
+							<div class="">
+								<div class="main-menu-header">
+									<a href="profile"> <img class="img-80 img-radius"
+										style="box-shadow: 0px 0px 5px white; height: 60px; width: 60px;"
+										th:if="${adinfo.profilepic}"
+										th:src="@{'/profile/'+${adinfo.profilepic}}"
+										alt="User-Profile-Image"> <img class="img-80 img-radius"
+										th:unless="${adinfo.profilepic}"
+										src="../assets/images/user_img.jpg" alt="User-Profile-Image">
+									</a>
+									<div class="user-details">
+										<span id="more-details"
+											style="display: flex; justify-content: center; align-items: center;"><span
+											th:text="${adinfo.name}"></span> &nbsp; <!-- <i
+											class="fa fa-caret-down"></i> --> </span>
+									</div>
+								</div>
+
+								
+							<div class="pcoded-navigation-label"
+								data-i18n="nav.category.navigation">Main</div>
+							<ul class="pcoded-item pcoded-left-item">
+								<li th:class="${active1}"><a href="adhome"
+									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+											class="ti-home"></i><b>D</b></span> <span class="pcoded-mtext"
+										data-i18n="nav.dash.main">Dashboard</span> <span
+										class="pcoded-mcaret"></span>
+								</a></li>
+								<li th:class="${active2}"><a href="scheduletest"
+									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+											class="ti-layout-grid2-alt"></i></span> <span class="pcoded-mtext"
+										data-i18n="nav.basic-components.main">Schedule Test</span> <span
+										class="pcoded-mcaret"></span>
+								</a></li>
+							</ul>
+							<div class="pcoded-navigation-label"
+								data-i18n="nav.category.forms">Manage Student & Results</div>
+							<ul class="pcoded-item pcoded-left-item">
+								<li th:class="${active4}"><a href="addstudents"
+									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+											class="ti-layout-list-thumb"></i><b>FC</b></span> <span
+										class="pcoded-mtext" data-i18n="nav.form-components.main">Add
+											Student</span> <span class="pcoded-mcaret"></span>
+								</a></li>
+								<li th:class="${active8}"><a href="addquestion"
+									class="waves-effect waves-dark"> <span class="pcoded-micon">
+											<i class="ti-direction-alt"></i> <b>M</b>
+									</span> <span class="pcoded-mtext"
+										data-i18n="nav.menu-levels.menu-level-21">Add Question</span>
+										<span class="pcoded-mcaret"></span>
+								</a></li>
+								<li th:class="${active21 ?: 'pcoded-hasmenu'}"><a
+									href="javascript:void(0)" class="waves-effect waves-dark">
+										<span class="pcoded-micon"><i
+											class="ti-layout-grid2-alt"></i></span> <span class="pcoded-mtext"
+										data-i18n="nav.basic-components.main">View Student</span> <span
+										class="pcoded-mcaret"></span>
+								</a>
+									<ul class="pcoded-submenu">
+										<li th:class="${active5}"><a href="allowedstd"
+											class="waves-effect waves-dark"> <span
+												class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
+												class="pcoded-mtext" data-i18n="nav.basic-components.alert">Allowed
+													Students</span> <span class="pcoded-mcaret"></span>
+										</a></li>
+									</ul></li>
+								<li th:class="${active7}"><a href="viewall"
+									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+											class="ti-trello"></i><b>FC</b></span> <span class="pcoded-mtext"
+										data-i18n="nav.form-components.main">Results &
+											Questions</span> <span class="pcoded-mcaret"></span>
+								</a></li>
+
+							</ul>
+
+							<div class="pcoded-navigation-label"
+								data-i18n="nav.category.other">Other Managements</div>
+							<ul class="pcoded-item pcoded-left-item">
+								<!-- Manage Courses -->
+								<li th:class="${active11}"><a href="managecourse"
+									class="waves-effect waves-dark"> <span class="pcoded-micon">
+											<i class="ti-agenda"></i><b>FC</b>
+									</span> <span class="pcoded-mtext"
+										data-i18n="nav.form-components.main">Manage Courses</span> <span
+										class="pcoded-mcaret"></span>
+								</a></li>
+
+								<!-- Manage Branch -->
+								<li th:class="${active12}"><a href="managebranches"
+									class="waves-effect waves-dark"> <span class="pcoded-micon">
+											<i class="ti-map"></i></i><b>FC</b>
+									</span> <span class="pcoded-mtext"
+										data-i18n="nav.form-components.main">Manage Branches</span> <span
+										class="pcoded-mcaret"></span>
+								</a></li>
+								
+								 <li th:class="${active13}"><a href="managequestionbank"
+									class="waves-effect waves-dark"> <span class="pcoded-micon"><i
+											class="ti-trello"></i><b>FC</b></span> <span class="pcoded-mtext"
+										data-i18n="nav.form-components.main">Manage Question Bank</span> <span
+										class="pcoded-mcaret"></span>
+								</a></li>
+								
+								<li th:class="${active14}"><a href="manageresult"
+									class="waves-effect waves-dark"> <span class="pcoded-micon">
+											<i class="ti-agenda"></i><b>FC</b>
+									</span> <span class="pcoded-mtext"
+										data-i18n="nav.form-components.main">Manage Results</span> <span
+										class="pcoded-mcaret"></span>
+								</a></li>
+
+							</ul>
+
+						</div>
+						</div>
+					</nav>
+					<div class="pcoded-content">
+
+						<div th:replace="${content}"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Upload Student CSV File Modal-->
+	<div class="modal fade" id="uploadStudent" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Upload Students</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+
+				<form id="uploadForm" enctype="multipart/form-data">
+					<div class="modal-body ps-3">
+						<span class="text-orange" id="span-text1">Upload Students
+							Data From CSV File</span> <span id="span-text2"
+							style="color: #ef662f; display: none;">Uploading please
+							wait...</span>
+						<div class="row pt-4 csvstudent-input-box">
+							<div class="col-sm-5 text-end px-3 pt-2">
+								<label class="fw-bold py-2">Select Test Name<span
+									class="text-danger">*</span></label>
+							</div>
+							<div class="col-sm-6 text-center pt-2">
+								<select id="testNameDropdown" required name="testname"
+									class="form-control rounded-0 border border-black">
+									<option value="">-Select Active Test-</option>
+									<th:block th:each="tests : ${testList}">
+										<option th:value="${tests.testname}"
+											th:text="${tests.testname}"></option>
+									</th:block>
+								</select>
+							</div>
+
+							<div class="col-sm-5 text-end px-3 pt-2">
+								<span class="fw-bold">Upload CSV File</span><span
+									class="text-danger">*</span>
+							</div>
+							<div class="col-sm-6 text-center pt-2">
+								<input type="file" id="file" name="file" class="form-control"
+									accept=".csv" required>
+							</div>
+
+						</div>
+
+						<!-- Loader Element -->
+
+						<div id="loader" class="text-center pt-3">
+							<img alt="image not found" height="150px" width="150px"
+								id="rightGif" src="../images/check-green.gif"
+								style="display: none;">
+
+							<div class="book" id="book" style="display: none;">
+								<div class="inner">
+									<div class="left"></div>
+									<div class="middle"></div>
+									<div class="right"></div>
+								</div>
+								<ul>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer pb-0 ps-3">
+
+						<div class="w-100 text-left">
+							<a href="../media/Files/student.csv" style="font-weight: bold;"
+								download>Download CSV Format <i class="ti-download"></i></a>
+						</div>
+						<button class="btn btn-secondary ftr-btn" type="button"
+							data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-primary ftr-btn">Upload</button>
+						<button type="button" id="ok-btn" style="display: none;"
+							onclick="rearrange();" class="btn btn-primary me-4">Ok</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div th:if="${msg}">
+		<input type="hidden" th:value="${msg}" id="msg">
+	</div>
+	<script>
+		var msg = document.getElementById("msg");
+		if(msg!=null)
+		{
+			alert(msg.value);		
+		}
+</script>
+
+	<!-- Upload Student Through CSV File -->
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script>
+	$(document).ready(function () {
+	    // Handle form submission using AJAX for CSV file upload
+	    $('#uploadForm').on('submit', function (event) {
+	        event.preventDefault(); // Prevent default form submission
+
+	        var formData = new FormData(); // FormData to handle file upload
+	        formData.append("file", $('#file')[0].files[0]); // Append the selected CSV file
+	        formData.append("testname", $('#testNameDropdown').val());
+	        // Show the loader
+	        $('#book').show();
+	        $('#span-text1').hide();
+	        $('#span-text2').show();
+	        $('.ftr-btn').hide();
+			$('.csvstudent-input-box').hide();
+	        
+	        // Send AJAX request to submit the CSV file
+	        $.ajax({
+	            url: '/admin/uploadstudent', // URL to send request for file upload
+	            type: 'POST',
+	            data: formData,
+	            processData: false, // Prevent jQuery from processing data
+	            contentType: false, // Prevent jQuery from setting content type
+	            success: function (response) {
+	                // On success, handle the response and show a message
+	                if (response.status === 'success') {
+	                	$('#book').hide();
+	                	$('#span-text2').hide();
+	                	$('#rightGif').show();
+	                	$('#ok-btn').show();
+	                	//$('#uploadStudent').modal('hide'); // Close the modal after upload  
+	                	//alert('CSV file uploaded and processed successfully!');     	
+	                } else {
+	                    alert('Error: ' + response.msg); // Show error message if there's a problem
+	                }
+	            },
+	            error: function () {
+	            	$('.modal').hide();
+	                alert('Error while submitting CSV file!');
+	            }
+	  
+	        });
+	    });
+	});
+	function rearrange()
+	{
+    	$('#rightGif').hide();
+    	$('#span-text1').show();
+        $('.ftr-btn').show();
+		$('.csvstudent-input-box').show();
+    	$('#uploadStudent').modal('hide');
+    	$('#ok-btn').hide();	
+	}
+</script>
+
+	<!-- Upload Question CSV File Modal-->
+	<div class="modal fade" id="uploadQuestion" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Upload Question
+						Bank</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<form method="post" id="uploadCsvQuestionForm"
+					enctype="multipart/form-data">
+					<div class="modal-body">
+						<span class="text-orange">Upload Question From CSV File</span>
+						<div class="row pt-4">
+							<div class="col-sm-5 text-end px-3 pt-2">
+								<label class="fw-bold py-2">Select Test Name<span
+									class="text-danger">*</span></label>
+							</div>
+							<div class="col-sm-6 text-center pt-2">
+								<select id="testName" required name="testname"
+									class="form-control rounded-0 border border-black">
+									<option value="">-Select Active Test-</option>
+									<th:block th:each="tests : ${testList}">
+										<option th:value="${tests.testname}"
+											th:text="${tests.testname}"></option>
+									</th:block>
+								</select>
+							</div>
+
+							<div class="col-sm-5 text-end px-3 pt-2">
+								<span class="fw-bold">Upload CSV File</span>
+							</div>
+							<div class="col-sm-6 text-center pt-2">
+								<input type="file" id="questionfile" name="qbfile"
+									class="form-control" accept=".csv" required>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer pb-3 ps-3">
+
+						<div class="w-100 text-left">
+							<a href="../media/Files/questions.csv" style="font-weight: bold;"
+								download>Download CSV Format <i class="ti-download"></i></a>
+						</div>
+						<button class="btn btn-secondary ftr-btn" type="button"
+							data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-primary ftr-btn">Upload</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("uploadCsvQuestionForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const fileInput = document.getElementById("questionfile");
+            const formData = new FormData();
+            formData.append("qbfile", fileInput.files[0]);
+            formData.append("testname", $('#testName').val());
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+
+            fetch('/admin/uploadquestion', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.text())
+                .then(result => {
+                    submitButton.disabled = false;
+                    alert(result); // Handle the result
+                    $('#uploadQuestion').modal('hide'); // Hide the modal on success
+                })
+                .catch(error => {
+                    console.error("Error uploading file:", error);
+                    submitButton.disabled = false;
+                    alert("Failed to upload the file. Please try again.");
+                });
+        });
+    });
+</script>
+
+
+	<!-- Required Jquery -->
+	<script type="text/javascript" src="../assets/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="../assets/js/jquery-ui/jquery-ui.min.js "></script>
+	<script type="text/javascript"
+		src="../assets/js/popper.js/popper.min.js"></script>
+	<script type="text/javascript"
+		src="../assets/js/bootstrap/js/bootstrap.min.js "></script>
+	<script type="text/javascript"
+		src="../assets/pages/widget/excanvas.js "></script>
+	<!-- waves js -->
+	<script src="../assets/pages/waves/js/waves.min.js"></script>
+	<!-- jquery slimscroll js -->
+	<script type="text/javascript"
+		src="../assets/js/jquery-slimscroll/jquery.slimscroll.js "></script>
+	<!-- modernizr js -->
+	<script type="text/javascript"
+		src="../assets/js/modernizr/modernizr.js "></script>
+	<!-- slimscroll js -->
+	<script type="text/javascript" src="../assets/js/SmoothScroll.js"></script>
+	<script src="../assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+	<!-- Chart js -->
+	<script type="text/javascript" src="../assets/js/chart.js/Chart.js"></script>
+	<!-- amchart js -->
+	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+	<script src="../assets/pages/widget/amchart/gauge.js"></script>
+	<script src="../assets/pages/widget/amchart/serial.js"></script>
+	<script src="../assets/pages/widget/amchart/light.js"></script>
+	<script src="../assets/pages/widget/amchart/pie.min.js"></script>
+	<script
+		src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+	<!-- menu js -->
+	<script src="../assets/js/pcoded.min.js"></script>
+	<script src="../assets/js/vertical-layout.min.js "></script>
+	<!-- custom js -->
+	<script type="text/javascript"
+		src="../assets/pages/dashboard/custom-dashboard.js"></script>
+	<!-- Data table js -->
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+	<!-- <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+ -->
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pageLength'			//, 'pdf', 'print'
+            ],
+            lengthMenu: [
+                [10, 25, 50, 100, -1],
+                ['10', '25', '50', '100', 'all']
+            ]
+        });
+    });
+</script>
+	<script>
+		$(document).ready(function() {
+			$('#myTable').DataTable();
+			$('#dt-search-0').attr('placeholder', 'search...');
+		});
+	</script>
+	<script type="text/javascript" src="../assets/js/script.js "></script>
+</body>
+
+</html>
+
+
+<!--   complete: function () {
+	               // Hide the loader after the request is complete
+	                $('#loader').hide();
+	                $('.ftr-btn').show();
+	    			$('.csvstudent-input-box').show();
+	            }-->

@@ -1,0 +1,67 @@
+<html th:replace="~{student/studentbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">See Result</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="stdhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="../student/result.html">See Result</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<!-- Main Section Started -->
+		<div class="pcoded-inner-content" style="margin: 50px auto;">
+			<div class="card shadow m-auto w-75 px-5 pt-4 pb-3">
+				
+
+					<div class="col-sm-8" th:if="${result}" style="display: flex; align-items: center; justify-content: center;">
+						<div>
+							<h4>
+								Congratulations <span class="text-orange" th:text="${result.name}"></span> ✨🎉
+							</h4>
+							<p style="font-size: 16px;">
+								You have Scored <span class="text-orange" style="font-size: 20px;" th:text="${result.getmarks}">10</span> out of  <span class="text-orange" style="font-size: 20px;" th:text="${result.totalmarks}">10</span> in <span class="text-orange" style="font-size: 20px;" th:text="${result.testname}">Online Test</span>
+								<br> This is a great achievement and 
+								your hard work.
+							</p>
+						</div>
+					</div>
+					
+					<div class="col-sm-8" th:unless="${result}" style="display: flex; align-items: center; justify-content: center;">
+						<div>
+							<h3>
+								You Don't Have Given test <span class="text-orange"></span>
+							</h3>
+							<p>
+								Once you will give the test then result will be shown here!
+							</p>
+							
+						</div>
+					</div>
+					<div class="col-sm-12 pt-4 text-center">
+						<a class="btn btn-primary" href="stdhome">Go To Dashboard</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

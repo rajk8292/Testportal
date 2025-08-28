@@ -1,0 +1,203 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head></head>
+
+<body>
+<section>
+	<!-- Page-header start -->
+	<div class="page-header">
+		<div class="page-block">
+			<div class="row align-items-center">
+				<div class="col-md-8">
+					<div class="page-header-title">
+						<h5 class="m-b-10">Dashboard</h5>
+						<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<ul class="breadcrumb-title">
+						<li class="breadcrumb-item">
+							<a href="adhome"><i class="fa fa-home"></i></a>
+						</li>
+						<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page-header end -->
+
+	<div class="pcoded-inner-content">
+		<div class="row">
+			<div class="col-sm-8 mx-auto py-1 bg-orange">
+				<h2 class="text-center">Student Registration</h2>
+			</div>
+		</div>
+
+		<form th:object="${dto}" method="post">
+			<div class="row py-1">
+				<div class="col-sm-10 bg-white py-3 pb-5 px-5 mx-auto" style="box-shadow: 0px 0px 5px gray;">
+					<!-- Test Name -->
+					<div class="row p-3 py-2">
+						<div class="col-sm-12 py-3">
+							<label class="fw-bold py-2">Select Test Name<span class="text-danger">*</span></label>
+							<select id="test" required th:field="*{testname}" class="form-control rounded-0 border border-black">
+								<option value="">-Select Active Test-</option>
+								<th:block th:each="tests : ${testList}">
+									<option th:value="${tests.testname}" th:text="${tests.testname}"></option>
+								</th:block>
+							</select>
+						</div>
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Roll No <span class="text-danger">*</span></label>
+							<input type="text" th:field="*{enrollmentno}" required class="form-control rounded-0 border border-black" placeholder="Enter Student Enrollment Number..." />
+						</div>
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Name <span class="text-danger">*</span></label>
+							<input type="text" required th:field="*{name}" class="form-control rounded-0 border border-black" placeholder="Enter Student Name...">
+						</div>
+					</div>
+
+					<!-- Contact, Email, Password -->
+					<div class="row p-3 py-2">
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Contact Number <span class="text-danger">*</span></label>
+							<input type="number" required th:field="*{contactno}" class="form-control rounded-0 border border-black" placeholder="Enter Student Contact Number...">
+						</div>
+					</div>
+
+					<div class="row p-3 py-2">
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Email <span class="text-danger">*</span></label>
+							<input type="email" required th:field="*{email}" class="form-control rounded-0 border border-black" placeholder="Enter Student Email Address...">
+						</div>
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Password <span class="text-danger">*</span></label>
+							<input type="password" required th:field="*{password}" class="form-control rounded-0 border border-black" placeholder="Enter Password...">
+						</div>
+					</div>
+
+					<!-- Course -->
+					<div class="row p-3 py-2">
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Course <span class="text-danger">*</span></label>
+							<select id="course" required th:field="*{course}" class="form-control rounded-0 border border-black">
+								<option value="">-Select Course-</option>
+								<option value="B.Tech">B.Tech</option>
+								<option value="M.Tech">M.Tech</option>
+								<option value="BCA">BCA</option>
+								<th:block th:each="course : ${courseList}">
+									<option th:value="${course.coursename}" th:text="${course.coursename}"></option>
+								</th:block>
+							</select>
+						</div>
+					</div>
+
+					<!-- Branch and Year -->
+					<div class="row p-3 py-2">
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Branch <span class="text-danger">*</span></label>
+							<select id="branch" required th:field="*{branch}" class="form-control rounded-0 border border-black">
+								<option value="">-Select Branch-</option>
+								<th:block th:each="b : ${branchList}">
+									<option th:value="${b.branchname}" th:text="${b.branchname}"></option>
+								</th:block>
+							</select>
+						</div>
+						<div class="col-sm-6">
+							<label class="fw-bold py-2">Year <span class="text-danger">*</span></label>
+							<select required th:field="*{year}" id="year" class="form-control rounded-0 border border-black">
+								<option value="">--Select Year--</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Buttons -->
+				<div class="col-sm-10 text-center pt-4 mx-auto">
+					<button type="reset" class="btn btn-secondary fs-5 mx-3 fw-bold py-2 px-4 rounded-0">Reset</button>
+					<button type="submit" class="btn btn-primary py-2 mx-3 px-4 fs-5 fw-bold rounded-0">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- Styling -->
+	<style>
+		.home-icon {
+			display: inline-block;
+			border: 1px solid;
+			padding: 10px;
+			border-radius: 6px;
+			color: white;
+			transition: 0.5s;
+		}
+		.home-icon:hover {
+			color: orangered;
+			background-color: white;
+		}
+		.fw-bold {
+			font-weight: bold;
+		}
+	</style>
+
+	<!-- JavaScript -->
+	<script>
+		const courseSelect = document.getElementById('course');
+		const yearSelect = document.getElementById('year');
+		const branchSelect = document.getElementById('branch');
+		const testSelect = document.getElementById('test');
+
+		const courseYearMap = {
+			"B.Tech": ["First Year", "Second Year", "Third Year", "Fourth Year"],
+			"M.Tech": ["First Year", "Second Year"],
+			"BCA": ["First Year", "Second Year", "Third Year"]
+		};
+
+		const courseBranchMap = {
+			"B.Tech": ["Computer Science", "Electronics", "Mechanical", "Civil"],
+			"M.Tech": ["Computer Science", "VLSI", "Power Systems"],
+			"BCA": ["IT", "Software Development"]
+		};
+
+		const extraTests = ["C Programming", "Machine Learning", "C++", "Aptitude"];
+
+		// On course change
+		courseSelect.addEventListener('change', () => {
+			const selectedCourse = courseSelect.value;
+
+			// Update Year options
+			yearSelect.innerHTML = '<option value="">--Select Year--</option>';
+			if (courseYearMap[selectedCourse]) {
+				courseYearMap[selectedCourse].forEach(year => {
+					const option = document.createElement('option');
+					option.value = year;
+					option.textContent = year;
+					yearSelect.appendChild(option);
+				});
+			}
+
+			// Update Branch options
+			branchSelect.innerHTML = '<option value="">-Select Branch-</option>';
+			if (courseBranchMap[selectedCourse]) {
+				courseBranchMap[selectedCourse].forEach(branch => {
+					const option = document.createElement('option');
+					option.value = branch;
+					option.textContent = branch;
+					branchSelect.appendChild(option);
+				});
+			}
+		});
+
+		// Add extra test names after DOM is loaded
+		window.addEventListener('DOMContentLoaded', () => {
+			extraTests.forEach(test => {
+				const option = document.createElement('option');
+				option.value = test;
+				option.textContent = test;
+				testSelect.appendChild(option);
+			});
+		});
+	</script>
+</section>
+</body>
+</html>

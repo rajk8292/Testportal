@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" th:replace="~{admin/adminbase::layout(~{::section})}">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<style>
+@media print {
+	body * {
+		visibility: hidden; /* Hide everything outside */
+	}
+	#example {
+		visibility: visible; /* Show only the table */
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+</style>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Result Data(Question, Results)</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<!-- Hover table card start -->
+			<div class="card">
+				<div class="card-header">
+					<span><code>Results & Questions</code>, according to Test Name
+					</span>
+					<div class="card-header-right">
+						<ul class="list-unstyled card-option">
+							<li><i class="fa fa fa-wrench open-card-option"></i></li>
+							<li><i class="fa fa-window-maximize full-card"></i></li>
+							<li><i class="fa fa-minus minimize-card"></i></li>
+							<li><i class="fa fa-refresh reload-card"></i></li>
+							<li><i class="fa fa-trash close-card"></i></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- <div class="head-menu py-2">
+					Filters
+					<div class="row filters px-3 text-center"></div>
+					<hr>
+				</div>
+ -->
+
+				<div class="card-block table-border-style">
+					<div class="table-responsive">
+
+						<table id="example" class="table table-hover">
+							<thead>
+								<tr>
+									<th class="text-center">Sr. No.</th>
+
+									<th>Test Name</th>
+									<th class="text-center">Test Date</th>
+									<th class="text-center">View Results</th>
+									<th class="text-center">View Questions</th>
+									<th class="text-center">Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="r, srno:${testList}">
+									<td class="text-center" th:text="${srno.index + 1}" scope="row">1</td>
+									
+									<td th:text="${r.testname}"></td>
+									<td class="text-center" th:text="${r.starttime}"></td>
+									
+									
+									<td class="text-center"><a
+										th:href="@{seeresult(testname=${r.testname})}"
+										style="color: blue; text-decoration: underline;">View Results</a>
+									</td>
+									
+									<td class="text-center"><a
+										th:href="@{questionbank(testname=${r.testname})}"
+										style="color: blue; text-decoration: underline;">View All Questions</a>
+									</td>
+									
+									
+									<td class="text-center"><a
+										th:href="@{deleteallquestion(testname=${r.testname})}"
+										class="text-decoration-none">
+											<button class="btn btn-danger" onclick="return confirm('Are you sure want to delete?')" >
+												Delete Test Question
+											</button>
+									</a></td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+			<!-- Hover table card end -->
+		</div>
+
+		<script>
+
+		</script>
+	<style>
+	.table td
+	{
+		padding: 5px 10px !important;
+	    vertical-align: middle;
+	}
+</style>
+	</section>
+</body>
+
+</html>

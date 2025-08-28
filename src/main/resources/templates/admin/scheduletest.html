@@ -1,0 +1,242 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Dashboard</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology, Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"><i class="fa fa-home"></i></a></li>
+							<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+
+		<div class="pcoded-inner-content">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-8 mx-auto">
+						<div class="card">
+							<div class="card-header">
+								<h5>Schedule Test</h5>
+							</div>
+							<div class="card-block">
+								<form class="form-material" action="/admin/scheduletest" method="post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="text" name="testname" class="form-control" required="">
+												<span class="form-bar"></span>
+												<label class="float-label">Enter Test Name</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select id="course" name="course" class="form-control">
+													<option value="">--Select Course--</option>
+													<option value="B.Tech">B.Tech</option>
+																					<option value="M.Tech">M.Tech</option>
+																					<option value="BCA">BCA</option>
+													<th:block th:each="course : ${courseList}">
+														<option th:value="${course.coursename}" th:text="${course.coursename}"></option>
+													</th:block>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select id="branch" name="branch" class="form-control" disabled>
+													<option value="">--Select Branch--</option>
+													<th:block th:each="b : ${branchList}">
+														<option th:value="${b.branchname}" th:text="${b.branchname}"></option>
+													</th:block>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<select id="year" name="year" class="form-control" disabled>
+													<option value="">--Select Year--</option>
+													<option value="First Year">1<sup>st</sup> Year</option>
+													<option value="Second Year">2<sup>nd</sup> Year</option>
+													<option value="Third Year">3<sup>rd</sup> Year</option>
+													<option value="Fourth Year">4<sup>th</sup> Year</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="number" name="numberofquestions" class="form-control" required="">
+												<span class="form-bar"></span>
+												<label class="float-label">Enter No. of Questions</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="datetime-local" name="starttime" class="form-control" required="">
+												<span class="form-bar"></span>
+												<label class="float-label date-lable">Schedule Time for Test</label>
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<div class="form-group form-default">
+												<input type="number" name="endtime" class="form-control" required="">
+												<span class="form-bar"></span>
+												<label class="float-label">Enter End Time in Hours</label>
+											</div>
+										</div>
+
+										<div class="col-sm-12 pb-0">
+											<div class="form-group form-default text-center pt-3">
+												<button class="btn btn-inverse mx-auto" type="submit">Schedule Test</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Test Table -->
+				<div class="card">
+					<div class="card-header">
+						<h4 class="fw-bold">All Tests</h4>
+						<span>Manage All <code>Test Schedules</code>, Active & Inactive</span>
+					</div>
+					<div class="card-block table-border-style">
+						<div class="table-responsive">
+							<table id="myTable" class="table table-hover">
+								<thead>
+									<tr>
+										<th>Sr. No.</th>
+										<th>Test Name</th>
+										<th>Course</th>
+										<th>Branch</th>
+										<th>Year</th>
+										<th>Start Time</th>
+										<th>Test Duration</th>
+										<th>No. Of Questions</th>
+										<th>Status</th>
+										<th>Update Test Duration</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="t, srno : ${testlist}">
+										<td class="text-center" th:text="${srno.index + 1}" scope="row">1</td>
+										<td th:text="${t.testname}"></td>
+										<td th:text="${t.course}"></td>
+										<td th:text="${t.branch}"></td>
+										<td th:text="${t.year}"></td>
+										<td class="text-center" th:text="${t.starttime}"></td>
+										<td class="text-center"><span th:text="${t.endtime}"></span> Hours</td>
+										<td class="text-center" th:text="${t.numberofquestions}"></td>
+										<td class="text-center" th:text="${t.teststatus}"></td>
+										<td class="text-center">
+											<a class="btn btn-success" th:href="@{updatetime(testid=${t.id})}">Update</a>
+										</td>
+										<td class="text-center">
+											<a th:href="@{deletetest(testid=${t.id})}">
+												<button onclick="return confirm('Are you sure want to delete??')" class="btn btn-danger">Delete</button>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Styling -->
+		<style>
+			#text {
+				display: none;
+			}
+			.form-material .date-lable {
+				left: 130px;
+			}
+			.form-group:focus-within .date-lable {
+				left: 0;
+			}
+			.table td {
+				padding: 5px 10px !important;
+				vertical-align: middle;
+			}
+		</style>
+
+		<!-- JavaScript to handle dynamic select -->
+		<script>
+			const courseSelect = document.getElementById('course');
+			const yearSelect = document.getElementById('year');
+			const branchSelect = document.getElementById('branch');
+
+			const courseYearMap = {
+				"B.Tech": ["First Year", "Second Year", "Third Year", "Fourth Year"],
+				"M.Tech": ["First Year", "Second Year"],
+				"BCA": ["First Year", "Second Year", "Third Year"]
+			};
+
+			const courseBranchMap = {
+				"B.Tech": ["Computer Science", "Electronics", "Mechanical", "Civil"],
+				"M.Tech": ["Computer Science", "VLSI", "Power Systems"],
+				"BCA": ["IT", "Software Development"]
+			};
+
+			courseSelect.addEventListener('change', () => {
+				const selectedCourse = courseSelect.value;
+
+				// Reset and disable year and branch
+				yearSelect.innerHTML = '<option value="">--Select Year--</option>';
+				branchSelect.innerHTML = '<option value="">--Select Branch--</option>';
+				yearSelect.disabled = true;
+				branchSelect.disabled = true;
+
+				// Update year options
+				if (courseYearMap[selectedCourse]) {
+					courseYearMap[selectedCourse].forEach(year => {
+						const option = document.createElement('option');
+						option.value = year;
+						option.textContent = year;
+						yearSelect.appendChild(option);
+					});
+					yearSelect.disabled = false;
+				}
+
+				// Update branch options
+				if (courseBranchMap[selectedCourse]) {
+					courseBranchMap[selectedCourse].forEach(branch => {
+						const option = document.createElement('option');
+						option.value = branch;
+						option.textContent = branch;
+						branchSelect.appendChild(option);
+					});
+					branchSelect.disabled = false;
+				}
+			});
+		</script>
+	</section>
+</body>
+</html>

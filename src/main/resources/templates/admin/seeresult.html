@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" th:replace="~{admin/adminbase::layout(~{::section})}">
+
+<head>
+</head>
+
+<body>
+	<section>
+
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="page-block">
+				<div class="row align-items-center">
+					<div class="col-md-8">
+						<div class="page-header-title">
+							<h5 class="m-b-10">Result Data</h5>
+							<p class="m-b-0">Welcome to Ambalika Institute of Management and Technology,Lucknow</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<ul class="breadcrumb-title">
+							<li class="breadcrumb-item"><a href="adhome"> <i
+									class="fa fa-home"></i>
+							</a></li>
+							<li class="breadcrumb-item"><a href="#!">Test Result</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page-header end -->
+		<div class="pcoded-inner-content">
+			<!-- Hover table card start -->
+			<div class="card">
+				<div class="card-header">
+					<div class="row">
+						<div class="col-sm-9">
+							<h4 class="fw-bold">Results Data</h4>
+						<span>Test <code>Results</code>, Data
+						</span>
+							
+						</div>
+
+						<div class="col-sm-3">
+							<b class="d-flex" style="justify-content: center; align-items: center;"><span class="mx-2">Total Student : </span> <span th:text="${stdcount}" class="text-primary"></span></b>
+						</div>
+					</div>
+					<div class="card-header-right">
+						<ul class="list-unstyled card-option">
+							<li><i class="fa fa fa-wrench open-card-option"></i></li>
+							<li><i class="fa fa-window-maximize full-card"></i></li>
+							<li><i class="fa fa-minus minimize-card"></i></li>
+							<li><i class="fa fa-refresh reload-card"></i></li>
+							<li><i class="fa fa-trash close-card"></i></li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="card-block table-border-style">
+					<div class="table-responsive">
+
+						<table id="example" class="table table-hover">
+							<thead>
+								<tr>
+									<th>Sr. No.</th>
+
+									<th>Name</th>
+									<th>Email</th>
+									<th>Contact No</th>
+									<th>Course</th>
+									<th>Branch</th>
+									<th>Year</th>
+									<th>Test Name</th>
+									<th>Total Marks</th>
+									<th>Get Marks</th>
+									<th>View Profile</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="r, srno:${trlist}">
+									<td class="text-center" th:text="${srno.index + 1}" scope="row">1</td>
+									<td th:text="${r.name}"></td>
+									<td th:text="${r.email}"></td>
+									<td class="text-center" th:text="${r.contactno}"></td>
+									<td th:text="${r.course}"></td>
+									<td th:text="${r.branch}"></td>
+									<td class="text-center" th:text="${r.year}"></td>
+									<td class="text-left" th:text="${r.testname}"></td>
+									<td class="text-center" th:text="${r.totalmarks}"></td>
+									<td class="text-center" th:text="${r.getmarks}"></td>
+
+									<td class="text-center"><a
+										th:href="@{viewmore(email=${r.email})}"
+										style="color: blue; text-decoration: underline;"> View
+											Profile..</a></td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+			<!-- Hover table card end -->
+		</div>
+
+		<script>
+			
+		</script>
+
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto+Condensed&display=swap');
+@import url('http://fonts.cdnfonts.com/css/revue-bt');
+
+* {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/* Main CSS */
+
+
+.outer {
+	min-height: 100vh;
+	background-image:
+		url('https://lms.polyprep.co.in/assets/common/img/Background-2.svg');
+	background-size: cover;
+}
+
+.headline {
+	padding-top: 0.6em;
+	background-color: #ed8841;
+	color: #fff;
+}
+
+.logo {
+	height: 7vh;
+}
+
+.main {
+	min-height: 30vh;
+	padding: 2% 0px;
+	margin-top: 10%;
+}
+
+.main h2 {
+	font-weight: bold;
+}
+
+.clghead {
+	text-shadow: 0px 0px 5px #e67817;
+}
+
+h5.clghead {
+	font-size: 1.1rem;
+	text-shadow: 0px 0px 5px #e67817;
+}
+
+.param {
+	font-size: 1.1rem;
+	text-align: justify;
+}
+
+.btnrow {
+	padding: 0px 12%;
+}
+
+.btncol {
+	padding: 0px 2%;
+	margin: 1em 0em;
+}
+
+.btn1 {
+	width: 100%;
+	margin: 0% 5%;
+	background-color: #fff;
+	border: 2px solid #e67817;
+	transition: all ease .4s;
+	color: white;
+	font-weight: bold;
+	margin-top: 1%;
+	box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5) inset;
+	background-color: #e67817;
+}
+
+.btn:hover {
+	transform: scale(1.1);
+	transition: all ease .4s;
+	color: white;
+}
+
+.card {
+	padding: 0 1%;
+	margin-top: 0em !important;
+	border: none;
+	padding-bottom: 0;
+}
+
+.card a {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.para1 {
+	height: 100%;
+	width: 100%;
+	padding: 1em 0em 0em;
+	text-align: center;
+	margin-top:5px;
+	border: 10px double #e67817;
+	transition:0.5s;
+}
+
+.para1:hover{
+	background-color:  #e67817;
+	color: #fff;
+	border: 10px double #fff;
+}
+
+.footer {
+	min-height: 30px;
+	font-size: 1rem;
+	background-color: #e67817;
+	color: #fff;
+	padding: 1em;
+}
+
+.footer a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* Admin Login Page CSS */
+
+
+/* login page start */
+.login-outer{
+    min-height: 300px;
+    border-radius: 27px;
+    background: #ffffff;
+    box-shadow:  20px 20px 43px #d9d9d9,
+                 -20px -20px 43px #ffffff;
+    margin-bottom: 2em;
+}
+.login-outer h4{
+    font-family: 'Noto Sans', sans-serif;
+    margin: 1em 0em;
+    
+}
+.login-outer input[type="submit"]{
+    background-color: #e67817;
+    color:#fff;
+}
+.login-outer p{
+    text-align: center;
+}
+.login-outer p a{
+    color:#000;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.login-outer p:hover a
+{
+	color: blue;
+}
+
+.login-outer input{
+    border-radius: 2em;
+    height: 3em;
+}
+/* login page end */
+
+
+/* Student Login Page CSS */
+

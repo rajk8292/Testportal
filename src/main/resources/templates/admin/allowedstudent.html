@@ -1,0 +1,146 @@
+<html th:replace="~{admin/adminbase::layout(~{::section})}">
+<head>
+</head>
+
+<body>
+	<section>
+		<div class="pcoded-inner-content p-3">
+			<!-- Hover table card start -->
+			<div class="card">
+				<div class="card-header">
+					<h4 class="fw-bold">Allowed Student</h4>
+					<span>Manage All <code>Allowed Students</code>, Available in
+						Database
+					</span>
+					<div class="card-header-right">
+						<ul class="list-unstyled card-option">
+							<li><i class="fa fa fa-wrench open-card-option"></i></li>
+							<li><i class="fa fa-window-maximize full-card"></i></li>
+							<li><i class="fa fa-minus minimize-card"></i></li>
+							<li><i class="fa fa-refresh reload-card"></i></li>
+							<li><i class="fa fa-trash close-card"></i></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="head-menu py-2">
+					<!-- Filters -->
+					<form method="post" th:action="@{/admin/allowedstd}">
+
+							<div class="col-lg-2 col-md-4 col-sm-6">
+								<label for="courseFilter" style="font-weight: bold;">Select
+									Course:</label> <select class="form-control border border-1"
+									id="courseFilter" name="course">
+									<option value="">All</option>
+									<th:block th:each="course : ${Courses}">
+										<option th:value="${course}" th:text="${course}"></option>
+									</th:block>
+								</select>
+							</div>
+							<div class="col-lg-2 col-md-4 col-sm-6">
+								<label for="branchFilter" style="font-weight: bold;">Select
+									Branch:</label> <select class="form-control border border-1"
+									id="branchFilter" name="branch">
+									<option value="">All</option>
+									<th:block th:each="branch : ${Branches}">
+										<option th:value="${branch}" th:text="${branch}"></option>
+									</th:block>
+								</select>
+							</div>
+
+							<div class="col-lg-2 col-md-4 col-sm-6">
+								<label for="testFilter" style="font-weight: bold;">Select
+									Test Name:</label> <select class="form-control border border-1"
+									id="testFilter" name="testname">
+									<option value="">All</option>
+									<th:block th:each="testname : ${testNames}">
+										<option th:value="${testname}" th:text="${testname}"></option>
+									</th:block>
+								</select>
+							</div>
+
+							<div class="col-lg-2 col-md-8 col-sm-12 text-center pt-4">
+								<button class="btn btn-primary mx-2 mt-1" type="submit"
+									id="downloadExcel">Search</button>
+							</div>
+						</div>
+					</form>
+					<hr />
+				</div>
+
+
+				<div class="card-block table-border-style">
+					<div class="table-responsive">
+						<table id="example" class="table table-hover">
+							<thead>
+								<tr>
+									<th>Sr. No.</th>
+									<th>Test Name</th>
+									<th>Enrollment No</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Contact No</th>
+									<th>Course</th>
+									<th>Branch</th>
+									<th>Year</th>
+									<th>Registration Date</th>
+									<th>View Profile</th>
+									<th>Edit</th>
+									<th>Delete</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody id="studentTable">
+								<!-- Render student rows if stdlist has data -->
+								<tr th:each="s, srno : ${stdlist}">
+									<td class="text-center" th:text="${srno.index + 1}" scope="row">1</td>
+									<td th:text="${s.testname}"></td>
+								
+									<td th:text="${s.enrollmentno}"></td>
+									<td th:text="${s.name}"></td>
+									<td th:text="${s.email}"></td>
+									<td class="text-center" th:text="${s.contactno}"></td>
+									<td th:text="${s.course}"></td>
+									<td th:text="${s.branch}"></td>
+									<td class="text-center" th:text="${s.year}"></td>
+									<td class="text-center" th:text="${s.regdate}"></td>
+									<td class="text-center"><a
+										th:href="@{viewmore(email=${s.email})}"
+										style="color: blue; text-decoration: underline;">View
+											Profile</a></td>
+									<td class="text-center"><a
+										th:href="@{editstudent(email=${s.email})}"
+										class="text-decoration-none"> <i class="ti-pencil-alt"
+											style="color: #2ca300; font-size: 20px; font-weight: bold;"></i>
+									</a></td>
+									<td class="text-center"><a
+										th:href="@{deletestudent(email=${s.email})}"
+										class="text-decoration-none">
+											<button class="bg-transparent"
+												onclick="return confirm('Are you sure want to delete?')"
+												style="border: 0; outline: 0; cursor: pointer;">
+												<i class="ti-trash"
+													style="color: #ff0000; font-size: 20px; font-weight: bold;"></i>
+											</button>
+									</a></td>
+									<td class="text-center"><a
+										th:href="@{checkstatus(email=${s.email})}"
+										class="btn btn-success">Verified!</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- Hover table card end -->
+		</div>
+
+		<style>
+div.dt-search {
+	display: none !important;
+}
+</style>
+	</section>
+
+</body>
+</html>
