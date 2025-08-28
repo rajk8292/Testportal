@@ -1,19 +1,47 @@
 .
 
-📝 Test Portal
+# 📝 Test Portal  
 
-A web-based Test Portal that allows students to attempt quizzes and view their results, while admins can manage courses, questions, and users.
+A **web-based Test Management System** where students can attempt quizzes and view results, while admins manage questions and performance reports.  
 
-🚀 Features
-👩‍🎓 Student Module
+---
 
-Register/Login securely
+## 📌 Table of Contents  
+- [Features](#-features)  
+- [Tech Stack](#-tech-stack)  
+- [Project Structure](#-project-structure)  
+- [Setup Instructions](#-setup-instructions)  
+- [Future Enhancements](#-future-enhancements)  
+- [Screenshots](#-screenshots)  
 
-Attempt MCQ-based tests
+---
 
-Instant result calculation with score display
+## 🚀 Features  
 
-View performance & ranking
+### 👩‍🎓 Student Module  
+- User registration & login  
+- Attempt **MCQ-based tests**  
+- Instant scoring & result display  
+- View past performance & ranks  
+
+### 👨‍💻 Admin Module  
+- Secure **Admin login**  
+- Add / Update / Delete questions  
+- Categorize questions by **Course, Branch, Year, Subject**  
+- View student results & maintain records  
+
+---
+
+## 🛠 Tech Stack  
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap  
+- **Backend:** Spring Boot (Java, REST APIs, MVC)  
+- **Database:** MySQL  
+- **Security:** Spring Security (for admin authentication)  
+
+---
+
+## 📂 Project Structure  
+
 
 👨‍💻 Admin Module
 
