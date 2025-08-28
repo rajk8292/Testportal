@@ -39,6 +39,15 @@ A **web-based Test Management System** where students can attempt quizzes and vi
 - **Security:** Spring Security (for admin authentication)  
 
 ---
+🎯 Future Enhancements
+
+Quiz timer with auto-submit ⏳
+
+Export results in PDF/Excel 📑
+
+Bulk question upload via CSV/Excel 📂
+
+Leaderboard with analytics 📊
 
 ## 📂 Project Structure  
 
@@ -61,24 +70,6 @@ Backend: Java Spring Boot (REST APIs + MVC)
 
 Database: MySQL
 
-📂 Project Structure
-TestPortal/
-│-- frontend/              # Bootstrap + HTML/CSS/JS files
-│   │-- index.html
-│   │-- login.html
-│   │-- test.html
-│   │-- results.html
-│
-│-- backend/               # Spring Boot backend
-│   │-- src/main/java/com/testportal
-│   │-- src/main/resources/application.properties
-│   │-- pom.xml
-│
-│-- database/              # MySQL scripts
-│   │-- schema.sql
-│   │-- data.sql
-│
-│-- README.md
 
 ⚙️ Installation & Setup
 1️⃣ Clone Repository
