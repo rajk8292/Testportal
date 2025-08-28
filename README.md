@@ -59,3 +59,21 @@ spring.jpa.properties.hibernate.format_sql=true
 # Security
 spring.security.user.name=admin
 spring.security.user.password=admin123
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feat/your-feature`
+3. Commit changes: `git commit -m "feat: add your feature"`
+4. Push: `git push origin feat/your-feature`
+5. Open a Pull Request
+
+---
+
+## 📫 Contact
+
+* **Author:** (Rajkumar Gupta)
+* **Email:** (mailto:kumarguptaraj825@gmail.com)
+* **Project:**(https://github.com/raj8292/Testportal)
+
